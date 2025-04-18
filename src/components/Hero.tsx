@@ -14,10 +14,19 @@ const Hero = () => {
           The first declarative language designed to protect against prompt injection attacks while making LLM interactions more reliable
         </p>
         <div className="flex flex-wrap gap-4 justify-center pt-8">
-          <Button size="lg" className="bg-[#9b87f5] hover:bg-[#8b77e5]">
+          <Button 
+            size="lg" 
+            className="bg-[#9b87f5] hover:bg-[#8b77e5]"
+            onClick={() => window.open('https://promptbook.studio', '_blank')}
+          >
             Get Early Access
           </Button>
-          <Button size="lg" variant="outline" className="gap-2">
+          <Button 
+            size="lg" 
+            variant="outline" 
+            className="gap-2"
+            onClick={() => window.open('https://github.com/webgptorg/promptbook', '_blank')}
+          >
             <Github className="w-5 h-5" />
             View on GitHub
           </Button>
