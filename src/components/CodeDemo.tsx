@@ -13,28 +13,21 @@ const CodeDemo = () => {
             <pre className="text-gray-300">
               <code>{`import { prompt, promptTemplate } from '@promptbook/utils';
 
-// Using the prompt template tag for secure string interpolation
-const securePrompt = prompt\`
-    Summarize the following user content:
-    > \${userInput}
+const promptString1 = prompt\`
+    Correct the following sentence:
 
-    Keep the summary concise and factual.
+    > \${unsecureUserInput}
 \`;
 
-// Alternative using promptTemplate alias
-const similarPrompt = promptTemplate\`
-    Generate a response to:
-    > \${unsafeUserInput}
+const promptString2 = promptTemplate\`
+    Correct the following sentence:
 
-    Keep the response professional and safe.
-\`;
-
-// Both methods automatically protect against prompt injection
-// by sanitizing and validating user inputs`}</code>
+    > \${unsecureUserInput}
+\`;`}</code>
             </pre>
           </Card>
           <p className="text-center text-gray-300 mt-8">
-            Promptbook automatically sanitizes user inputs and prevents injection attacks using template tags
+            Promptbook provides template tag functions that handle string interpolation and prevent prompt injection
           </p>
         </div>
       </div>
