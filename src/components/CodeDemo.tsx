@@ -11,35 +11,30 @@ const CodeDemo = () => {
           </h2>
           <Card className="bg-[#1A1F2C] border-none p-6 font-mono text-sm">
             <pre className="text-gray-300">
-              <code>{`# Define a secure prompt template
-prompt "summarize" {
-  input: {
-    text: string
-    max_length: number
-  }
-  
-  validation {
-    text.length > 0
-    max_length > 100
-  }
-  
-  template: """
-    Summarize the following text in {{max_length}} words:
-    {{sanitize(text)}}
-  """
-  
-  model: "gpt-4"
-}
+              <code>{`import { prompt, promptTemplate } from '@promptbook/utils';
 
-# Use the prompt safely
-execute summarize {
-  text: user_input,
-  max_length: 150
-}`}</code>
+// Using the prompt template tag for secure string interpolation
+const securePrompt = prompt\`
+    Summarize the following user content:
+    > \${userInput}
+
+    Keep the summary concise and factual.
+\`;
+
+// Alternative using promptTemplate alias
+const similarPrompt = promptTemplate\`
+    Generate a response to:
+    > \${unsafeUserInput}
+
+    Keep the response professional and safe.
+\`;
+
+// Both methods automatically protect against prompt injection
+// by sanitizing and validating user inputs`}</code>
             </pre>
           </Card>
           <p className="text-center text-gray-300 mt-8">
-            Promptbook validates inputs, sanitizes content, and prevents injection attacks automatically
+            Promptbook automatically sanitizes user inputs and prevents injection attacks using template tags
           </p>
         </div>
       </div>
