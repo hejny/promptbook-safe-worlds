@@ -12,7 +12,11 @@ const CallToAction = () => {
         <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
           Join the growing community of developers building secure AI applications with Promptbook
         </p>
-        <Button size="lg" className="bg-[#9b87f5] hover:bg-[#8b77e5] gap-2">
+        <Button 
+          size="lg" 
+          className="bg-[#9b87f5] hover:bg-[#8b77e5] gap-2"
+          onClick={() => window.open('https://discord.gg/HHJrqYjq66', '_blank')}
+        >
           Get Started <ArrowRight className="w-5 h-5" />
         </Button>
       </div>
